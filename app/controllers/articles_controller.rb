@@ -12,6 +12,8 @@ class ArticlesController < ApplicationController
   end
   def create
     @article = Article.new(article_params)
+    #debugger
+    @article.user = User.first
     if @article.save
       flash[:notice] = "Article is successfully created"
       redirect_to article_path(@article)
